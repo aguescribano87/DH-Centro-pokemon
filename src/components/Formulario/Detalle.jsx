@@ -1,6 +1,6 @@
 import React from "react";
 
-const Detalle = () => {
+const Detalle = ({dataForm}) => {
   // Aqui deberíamos obtener los datos del formulario para poder mostrarlo en
   // la vista previa.
 
@@ -12,15 +12,15 @@ const Detalle = () => {
       <section className="datos-cliente">
         <h4>Datos del Entrenador</h4>
         <div className="fila">
-          <p>Nombre:</p>
-          <p>Apellido:</p>
-          <p>Email:</p>
+          <p>Nombre: {dataForm?.nombre}</p>
+          <p>Apellido: {dataForm?.apellido}</p>
+          <p>Email: {dataForm?.email}</p>
         </div>
       </section>
       <section className="datos-cliente">
         <h4>Datos del Pokémon</h4>
         <div className="fila">
-          <p>Nombre:</p>
+          <p>Nombre: {dataForm?.nombrePokemon}</p>
         </div>
       </section>
       <button
