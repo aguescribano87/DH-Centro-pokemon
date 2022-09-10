@@ -1,12 +1,13 @@
 // Aqui debemos crear nuestro contexto y nuestro provider.
-import { createContext, useState } from "react"
+import { createContext, useContext, useReducer } from "react"
+import { formReducer, initialStore } from "./formReducer"
 
 export const DataContext = createContext()
 
-export const DataProvider = ({ children }) => {
-    const [dataForm, setDataForm] = useState()
-
-    return <DataContext.Provider value={{dataForm, setDataForm}}>
+export const DataProvider = ({ children }) =>
+    <DataContext.Provider value={useReducer(formReducer, initialStore)}>
         {children}
     </DataContext.Provider>
-}
+
+export const useStore = () => useContext(DataContext)[0]
+export const useDispatch = () => useContext(DataContext)[1]
