@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../../context/ContextoFormulario";
 
-const Detalle = ({dataForm}) => {
+const Detalle = () => {
   // Aqui deberíamos obtener los datos del formulario para poder mostrarlo en
   // la vista previa.
+  const { dataForm } = useContext(DataContext)
 
   return (
     <div className="detalle-formulario">
