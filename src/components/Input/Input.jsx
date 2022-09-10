@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { DataContext } from "../../context/ContextoFormulario";
 
-const Input = ({ name, label, type = "text", setDataForm, dataForm }) => {
+const Input = ({ name, label, type = "text" }) => {
+
+  const { dataForm, setDataForm } = useContext(DataContext)
   // Aqui deberíamos acceder al estado global para poder obtener los datos
   // del formulario y una manera de actualizar los mismos.
 
@@ -14,6 +17,10 @@ const Input = ({ name, label, type = "text", setDataForm, dataForm }) => {
 
   const onBlur = (e) => {
     setDataForm({ ...dataForm, [e.target.id]: e.target.value })
+    // Aqui deberíamos actualizar el estado global con los datos de
+    // cada input.
+    // TIP: Podemos utilizar el nombre de cada input para guardar
+    // los datos en el estado global usando una notación de { clave: valor }
   };
 
   return (
